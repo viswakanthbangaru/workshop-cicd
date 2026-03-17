@@ -4,6 +4,8 @@ table Sales
 	measure '# Customers (w/ Sales)' = DISTINCTCOUNT('Sales'[CustomerKey])
 		formatString: #,##0
 		lineageTag: 4ec872f0-a42d-4aa9-bf6b-1ca7c4916336
+    measure 'Sales Qty (LY)' = CALCULATE([Sales Qty], SAMEPERIODLASTYEAR('Calendar'[Date]))
+	    lineageTag: 019cddab-955e-72e4-afbd-612d555de377
 
 	measure 'Sales Qty' = sum('Sales'[Quantity])
 		formatString: #,##0
